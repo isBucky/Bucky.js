@@ -20,31 +20,31 @@ yarn add bucky.js
 # Utilities:
 | Functions | Params | Description |
 | --------- | ------ | ----------- |
-| `compareStrings` | `string` `target` | ` ` |
-| `daysAgo` | `date` | ` ` |
-| `formatSizeUnits` | `bytes` | ` ` |
-| `ms` | `ms or date` `lang` | ` ` |
-| `removeAcents` | `string` | ` ` |
-| `removeDupleChars` | `string` | ` ` |
-| `shorten` | `string` `max length` | ` ` |
-| `similarString` | `string` `array strings` | ` ` |
-| `timeFormat` | `date` | ` ` |
+| `compareStrings` | `string` `target` |
+| `daysAgo` | `date`|
+| `formatSizeUnits` | `bytes` |
+| `ms` | `ms or date` `lang` |
+| `removeAcents` | `string` |
+| `removeDupleChars` | `string` |
+| `shorten` | `string` `max length` |
+| `similarString` | `string` `array strings` |
+| `timeFormat` | `date` |
 
 # Verifications:
 | Functions | Params | Description |
 | --------- | ------ | ----------- |
-| `isDate` | `date` | ` ` |
-| `isEmail` | `string` | ` ` |
-| `isHex` | `string` | ` ` |
-| `isURL` | `string` | ` ` |
+| `isDate` | `date` |
+| `isEmail` | `string` |
+| `isHex` | `string` |
+| `isURL` | `string` |
 
 # Generators:
 | Functions | Params | Description |
 | --------- | ------ | ----------- |
-| `generateDecimal` | ` ` | ` ` |
-| `generateHex` | ` ` | ` ` |
-| `generatePassword` | `amount` | ` ` |
-| `generateRGB` | ` ` | ` ` |
+| `generateDecimal` |
+| `generateHex` |
+| `generatePassword` | `amount` |
+| `generateRGB` |
 
 # Examples:
 ## Utilities:
