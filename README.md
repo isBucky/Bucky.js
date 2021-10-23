@@ -18,8 +18,8 @@ yarn add bucky.js
 ```
 
 # Utilities:
-| Functions | Params | Description |
-| --------- | ------ | ----------- |
+| Functions | Params |
+| --------- | ------ |
 | `compareStrings` | `string` `target` |
 | `daysAgo` | `date`|
 | `formatSizeUnits` | `bytes` |
@@ -31,16 +31,16 @@ yarn add bucky.js
 | `timeFormat` | `date` |
 
 # Verifications:
-| Functions | Params | Description |
-| --------- | ------ | ----------- |
+| Functions | Params |
+| --------- | ------ |
 | `isDate` | `date` |
 | `isEmail` | `string` |
 | `isHex` | `string` |
 | `isURL` | `string` |
 
 # Generators:
-| Functions | Params | Description |
-| --------- | ------ | ----------- |
+| Functions | Params |
+| --------- | ------ |
 | `generateDecimal` |
 | `generateHex` |
 | `generatePassword` | `amount` |
@@ -75,7 +75,7 @@ let result = bucky.formatSizeUnits(1000000000);
 console.log(result); // Output: 1.00 GB
 
 let result2 = bucky.formatSizeUnits(10000000000000);
-console.log(result); // Output: 10.00 TB
+console.log(result2); // Output: 10.00 TB
 ```
 
 ### Ms:
@@ -102,7 +102,7 @@ console.log(ms); /**
 let ms2 = bucky.ms(800000, 'pt-br'); // Languages: pt-BR and EN
 console.log(ms2); // Output: '13 minutos, 20 segundos'
 
-let ms3 = bucky.ms(800000, 'pt-br'); // Languages: pt-BR and EN
+let ms3 = bucky.ms(800000, 'en'); // Languages: pt-BR and EN
 console.log(ms3); // Output: '13 minutes, 20 seconds'
 ```
 
@@ -112,7 +112,7 @@ const bucky = require('bucky.js');
 
 let
   string = 'ãáäíúò çêéèëô',
-  result = bucky.removeAcents();
+  result = bucky.removeAcents(string);
 console.log(result); // aaaiuo ceeeeo
 ```
 
@@ -123,7 +123,7 @@ const bucky = require('bucky.js');
 let
   string = 'bbbbbbbbbuuuuuuuuccccccckkkkkkyyyyy',
   result = bucky.removeDupleChars(string);
-console.log(string); // Output: bucky
+console.log(result); // Output: bucky
 ```
 
 ### Shorten:
@@ -131,8 +131,8 @@ console.log(string); // Output: bucky
 const bucky = require('bucky.js');
 
 let
-  string = 'bla bla bla, install bucky npm',
-  result = bucky.shorten(string, 13);
+  string = 'install bucky npm, bla bla bla',
+  result = bucky.shorten(string, 17);
 console.log(result); // Output: install bucky npm
 ```
 
@@ -148,9 +148,9 @@ console.log(result); /**
   * Output:
   * {
   *   results: [
-  *     { target: 'npm', rating: 0 },
-  *     { target: 'install', rating: 0 },
-  *     { target: 'yarn', rating: 0 },
+  *     { target: 'npm', rating: 0.3333333333333333 },
+  *     { target: 'install', rating: 0.2 },
+  *     { target: 'yarn', rating: 0.2857142857142857 },
   *     { target: 'buc', rating: 0.6666666666666666 }
   *   ],
   *   best: { target: 'buc', rating: 0.6666666666666666 },
@@ -187,7 +187,7 @@ const bucky = require('bucky.js');
 
 let
   date1 = '124',
-  date2 = '2021-10-23T18:19:40.997Z';
+  date2 = new Date();
   
 console.log(bucky.isDate(date1)); // Output: false
 console.log(bucky.isDate(date2)); // Output: true
@@ -210,7 +210,7 @@ console.log(bucky.isEmail(email2)); // Output: true
 const bucky = require('bucky.js');
 
 let
-  hex1 = '#123',
+  hex1 = '123',
   hex2 = '#87CEFA';
   
 console.log(bucky.isHex(hex1)); // Output: false
@@ -225,8 +225,8 @@ let
   url1 = '7363.com',
   url2 = 'https://www.npmjs.com/package/bucky.js';
   
-console.log(bucky.isHex(hex1)); // Output: false
-console.log(bucky.isHex(hex2)); // Output: true
+console.log(bucky.isURL(url1)); // Output: false
+console.log(bucky.isURL(url2)); // Output: true
 ```
 
 ## Generators:

@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function RemoveAcents(string) {
-  if (typeof string !== 'string') throw new TypeError();
+  if (typeof string !== 'string') throw new TypeError('You have not defined a valid string!');
   
   return String(string)
     .replace(new RegExp('[ÀÁÂÃÄÅÆĀĂĄ]', 'gi'), 'a')

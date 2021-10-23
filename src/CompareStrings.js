@@ -1,8 +1,8 @@
 'use strict';
 
 module.exports = function CompareStrings(string, target) {
-  if (!string) throw new TypeError();
-  if (!target) throw new TypeError();
+  if (!string) throw new TypeError('You didn\'t define a string in the first parameter!');
+  if (!target) throw new TypeError('You didn\'t define a string in the second parameter!');
   
   string = string.replace(/\s+/g, '');
   target = target.replace(/\s+/g, '');

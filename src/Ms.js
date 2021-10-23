@@ -2,9 +2,13 @@
 
 const isDate = require('./verifications/IsDate.js');
 
-module.exports = function Ms(time, formatted = 'pt-BR') {
-  if (!time) throw new TypeError();
-  if (isDate(time)) time = time.getTime();
+module.exports = function Ms(time, formatted) {
+  if (isDate(time)) {
+    time = new Date(time);
+    if (time == 'Invalid Date') time = null;
+    else time = time?.getTime();
+  }
+  if (!time) throw new TypeError('You have not set a valid time!');
   
   const
     parse = time > 0 ? Math.floor : Math.ceil,
@@ -21,6 +25,8 @@ module.exports = function Ms(time, formatted = 'pt-BR') {
     };
     
   if (formatted) {
+    if (!['pt-br', 'en'].includes(formatted)) throw new TypeError();
+    
     let
       lang = formatted.toLowerCase(),
       langs = {

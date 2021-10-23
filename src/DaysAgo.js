@@ -3,8 +3,8 @@
 const isDate = require('./verifications/IsDate.js');
 
 module.exports = function DaysAgo(time) {
-  if (!time) throw new TypeError();
-  if (!isDate(time)) throw new TypeError();
+  if (!time) throw new TypeError('You haven\'t set a time!');
+  if (!isDate(time)) throw new TypeError('You have not set a valid date!');
   
   let
     now = new Date(),
