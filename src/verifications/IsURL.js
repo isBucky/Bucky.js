@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function isURL(link) {
+module.exports = function IsURL(link) {
   if (!link) return false;
   let res;
   try {

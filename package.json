@@ -1,6 +1,6 @@
 {
   "name": "bucky.js",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Simple npm that has several functions to use in everyday development.",
   "main": "index.js",
   "repository": {
@@ -17,5 +17,9 @@
     "url": "https://github.com/B4CKY0FC/bucky.js/issues"
   },
   "homepage": "https://github.com/B4CKY0FC/bucky.js#readme",
-  "dependencies": {}
+  "dependencies": {},
+  "engines": {
+    "node": ">=16.6.0",
+    "npm": ">=7.0.0"
+  }
 }

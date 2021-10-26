@@ -24,5 +24,9 @@ module.exports = {
   isDate: require('./src/verifications/IsDate.js'),
   isEmail: require('./src/verifications/IsEmail.js'),
   isHex: require('./src/verifications/IsHex.js'),
-  isURL: require('./src/verifications/IsURL.js')
+  isURL: require('./src/verifications/IsURL.js'),
+  isDirectory: require('./src/verifications/IsDirectory.js'),
+  isFile: require('./src/verifications/IsFile.js'),
+  isEmptyDirectory: require('./src/verifications/IsEmptyDirectory.js'),
+  isEmptyFile: require('./src/verifications/IsEmptyFile.js')
 };
