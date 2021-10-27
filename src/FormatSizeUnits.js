@@ -1,28 +1,15 @@
 'use strict';
 
 module.exports = function FormatSizeUnits(bytes) {
-  if (bytes >= 10000000000000000000000000) {
-    bytes = (bytes / 10000000000000000000000000).toFixed(2) + " YB";
-  } else if (bytes >= 1000000000000000000000) {
-    bytes = (bytes / 1000000000000000000000).toFixed(2) + " ZB";
-  } else if (bytes >= 1000000000000000000) {
-    bytes = (bytes / 1000000000000000000).toFixed(2) + " EB";
-  } else if (bytes >= 1000000000000000) {
-    bytes = (bytes / 1000000000000000).toFixed(2) + " PB";
-  } else if (bytes >= 1000000000000) {
-    bytes = (bytes / 1000000000000).toFixed(2) + " TB";
-  } else if (bytes >= 1000000000) {
-    bytes = (bytes / 1000000000).toFixed(2) + " GB";
-  } else if (bytes >= 1000000) {
-    bytes = (bytes / 1000000).toFixed(2) + " MB";
-  } else if (bytes >= 1000) {
-    bytes = (bytes / 1000).toFixed(2) + " KB";
-  } else if (bytes > 1) {
-    bytes = bytes + " bytes";
-  } else if (bytes == 1) {
-    bytes = bytes + " byte";
-  } else {
-    bytes = "0 bytes";
-  }
-  return bytes;
+  if (bytes >= 1e25) return `${(bytes / 1e25).toFixed(2)} YB`;
+  if (bytes >= 1e21) return `${(bytes / 1e21).toFixed(2)} ZB`;
+  if (bytes >= 1e18) return `${(bytes / 1e18).toFixed(2)} EB`;
+  if (bytes >= 1e15) return `${(bytes / 1e15).toFixed(2)} PB`;
+  if (bytes >= 1e12) return `${(bytes / 1e12).toFixed(2)} TB`;
+  if (bytes >= 1e9) return `${(bytes / 1e9).toFixed(2)} GB`;
+  if (bytes >= 1e6) return `${(bytes / 1e6).toFixed(2)} MB`;
+  if (bytes >= 1e3) return `${(bytes / 1e3).toFixed(2)} KB`;
+  if (bytes > 1) return `${bytes} bytes`;
+  if (bytes == 1) return `${bytes} bytes`;
+  return '0 bytes';
 };

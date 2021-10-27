@@ -28,5 +28,10 @@ module.exports = {
   isDirectory: require('./src/verifications/IsDirectory.js'),
   isFile: require('./src/verifications/IsFile.js'),
   isEmptyDirectory: require('./src/verifications/IsEmptyDirectory.js'),
-  isEmptyFile: require('./src/verifications/IsEmptyFile.js')
+  isEmptyFile: require('./src/verifications/IsEmptyFile.js'),
+  
+  // Encryptions:
+  encoder: require('./src/encryptions/Encoder.js'),
+  decoder: require('./src/encryptions/Decoder.js'),
+  compare: require('./src/encryptions/Compare.js')
 };
