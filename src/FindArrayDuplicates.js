@@ -5,6 +5,6 @@ module.exports = function FindArrayDuplicates(array) {
   let result = array.filter((data, index) => (
     array.indexOf(data) !== index
   ));
-  
+
   return !result.length ? null : result;
 };
