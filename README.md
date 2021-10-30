@@ -29,6 +29,9 @@ yarn add bucky.js
 | `shorten` | `string` `max length` |
 | `similarString` | `string` `array strings` |
 | `timeFormat` | `date` |
+| `sleep` | `ms` |
+| `findArrayDuplicates` | `array` |
+| `capitalizeFirstLetter` | `string` |
 
 # Verifications:
 | Functions | Params |
@@ -106,7 +109,7 @@ console.log(ms); /**
   *  milliSecond: 0,
   *  microSecond: 0,
   *  nanoSecond: 0,
-  *  abbreviated: '13m e 20s'
+  *  abbreviated: '13m, 20s'
   * }
 */
 
@@ -189,6 +192,39 @@ console.log(result); /*
   *   parseMs: 1635002085785
   * }
 */
+```
+
+### Sleep:
+```js
+const bucky = require('bucky.js');
+
+(async() => {
+  console.log('Start');
+  await bucky.sleep(5000);
+  console.log('Final');
+})();
+```
+
+### FindArrayDuplicates:
+```js
+const bucky = require('bucky.js');
+
+let array = [
+  'bucky.js',
+  'best',
+  'npm',
+  'best'
+];
+
+console.log(bucky.FormatSizeUnits(array)); // Output: ['best']
+```
+
+### CapitalizeFirstLetter:
+```js
+const bucky = require('bucky.js');
+
+let string = 'bucky.js best npm!';
+console.log(bucky.capitalizeFirstLetter(string)); // Output: Bucky.js best npm!
 ```
 
 ## Verifications:

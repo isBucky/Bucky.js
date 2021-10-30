@@ -3,16 +3,24 @@
 module.exports = {
   version: require('./package.json').version,
   
-  // Functions:
-  compareStrings: require('./src/CompareStrings.js'),
-  daysAgo: require('./src/DaysAgo.js'),
-  formatSizeUnits: require('./src/FormatSizeUnits.js'),
-  ms: require('./src/Ms.js'),
-  removeAcents: require('./src/RemoveAcents.js'),
-  removeDupleChars: require('./src/RemoveDupleChars.js'),
-  shorten: require('./src/Shorten.js'),
-  similarString: require('./src/SimilarString.js'),
+  // Others:
+  sleep: require('./src/others/Sleep.js'),
+  
+  // Formats Dates:
+  ms: require('./src/formatDates/Ms.js'),
+  daysAgo: require('./src/formatDates/DaysAgo.js'),
   timeFormat: require('./src/TimeFormat.js'),
+  
+  // Formats:
+  compareStrings: require('./src/formats/CompareStrings.js'),
+  formatSizeUnits: require('./src/formats/FormatSizeUnits.js'),
+  removeAcents: require('./src/formats/RemoveAcents.js'),
+  removeDupleChars: require('./src/formats/RemoveDupleChars.js'),
+  shorten: require('./src/formats/Shorten.js'),
+  similarString: require('./src/formats/SimilarString.js'),
+  findArrayDuplicates: require('./src/formats/FindArrayDuplicates.js'),
+  formatNumber: require('./src/formats/FormatNumber.js'),
+  capitalizeFirstLetter: require('./src/formats/CapitalizeFirstLetter.js'),
   
   // Generators:
   generateDecimal: require('./src/generators/GenerateDecimal.js'),
