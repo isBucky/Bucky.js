@@ -1,6 +1,6 @@
 {
   "name": "bucky.js",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Simple npm that has several functions to use in everyday development.",
   "main": "index.js",
   "repository": {

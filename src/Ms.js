@@ -29,7 +29,8 @@ module.exports = function Ms(time, formatted) {
     
   if (formatted) {
     formatted = formatted.toLowerCase();
-    if (!['pt-br', 'en'].includes(formatted)) throw new TypeError('Choose a valid language: pt-br or en!');
+    if (!formatted) formatted = 'en-us';
+    if (!['pt-br', 'en-us'].includes(formatted)) throw new TypeError('Choose a valid language: pt-br or en-us!');
     
     let
       langs = {
@@ -41,7 +42,7 @@ module.exports = function Ms(time, formatted) {
           [' minutos', ' minuto'],
           [' segundos', ' segundo']
         ],
-        'en': [
+        'en-us': [
           [' years', ' year'],
           [' months', ' month'],
           [' days', ' day'],

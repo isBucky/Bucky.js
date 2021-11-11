@@ -147,7 +147,7 @@ const bucky = require('bucky.js');
 let
   string = 'install bucky npm, bla bla bla',
   result = bucky.shorten(string, 17);
-console.log(result); // Output: install bucky npm
+console.log(result); // Output: install bucky npm...
 ```
 
 ### SimilarString:
