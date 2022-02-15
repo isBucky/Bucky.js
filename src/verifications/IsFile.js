@@ -1,14 +1,14 @@
 'use strict';
 
 const
-  path = require('path'),
-  { lstatSync } = require('fs');
+  path = require('node:path'),
+  { lstatSync } = require('node:fs');
   
-module.exports = function IsFile(file) {
+function IsFile(file) {
   try {
     let data = lstatSync(path.resolve(file));
-    return data?.isFile();
-  } catch(_) {
-    return false;
-  }
+    return !!data?.isFile();
+  } catch(_) { return false; }
 }
+
+module.exports = IsFile;

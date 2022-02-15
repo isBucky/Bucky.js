@@ -1,14 +1,14 @@
 'use strict';
 
 const
-  path = require('path'),
-  { readFileSync } = require('fs');
+  path = require('node:path'),
+  { readFileSync } = require('node:fs');
   
-module.exports = function IsEmptyFile(file) {
+function IsEmptyFile(file) {
   try {
     let data = readFileSync(path.resolve(file), 'utf8');
     return !!!data?.length;
-  } catch(_) {
-    return true;
-  }
+  } catch(_) { return true; }
 }
+
+module.exports = IsEmptyFile;

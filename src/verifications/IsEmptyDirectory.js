@@ -1,14 +1,14 @@
 'use strict';
 
 const
-  path = require('path'),
-  { readdirSync } = require('fs');
+  path = require('node:path'),
+  { readdirSync } = require('node:fs');
   
-module.exports = function IsEmptyDirectory(dir) {
+function IsEmptyDirectory(dir) {
   try {
     let data = readdirSync(path.resolve(dir));
     return !!!data?.length;
-  } catch(_) {
-    return true;
-  }
+  } catch(_) { return true; }
 }
+
+module.exports = IsEmptyDirectory;

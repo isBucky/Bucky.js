@@ -1,14 +1,14 @@
 'use strict';
 
 const
-  path = require('path'),
-  { lstatSync } = require('fs');
+  path = require('node:path'),
+  { lstatSync } = require('node:fs');
   
-module.exports = function IsDirectory(dir) {
+function IsDirectory(dir) {
   try {
     let data = lstatSync(path.resolve(dir));
-    return data?.isDirectory();
-  } catch(_) {
-    return false;
-  }
+    return !!data?.isDirectory();
+  } catch(_) { return false; }
 }
+
+module.exports = IsDirectory;

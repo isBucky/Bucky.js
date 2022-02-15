@@ -1,13 +1,9 @@
 'use strict';
 
-const isDate = require('./verifications/IsDate.js');
+const { isDate } = require('node:util');
 
-module.exports = function Ms(time, formatted) {
-  if (isDate(time)) {
-    time = new Date(time);
-    if (time == 'Invalid Date') time = null;
-    else time = time?.getTime();
-  }
+function Ms(time, formatted) {
+  if (isDate(time)) time = time.getTime();
   
   if (!time) throw new TypeError('You have not set a valid time!');
   if (isNaN(time)) throw new TypeError('Time in ms can only be in numbers!');
@@ -15,17 +11,17 @@ module.exports = function Ms(time, formatted) {
   let
     parse = time > 0 ? Math.floor : Math.ceil,
     
-    year = parse(time / 315576e6),
-    month = (parse(time / 2592e6) % 12),
-    day = (parse(time / 864e5) % 30),
+    year = ~~(parse(time / 315576e6)),
+    month = ~~((parse(time / 2592e6) % 12)),
+    day = ~~((parse(time / 864e5) % 30)),
     
-    hour = (parse(time / 36e5) % 24),
-    minute = (parse(time / 6e4) % 60),
-    second = (parse(time / 1e3) % 60),
+    hour = ~~((parse(time / 36e5) % 24)),
+    minute = ~~((parse(time / 6e4) % 60)),
+    second = ~~((parse(time / 1e3) % 60)),
     
-    milliSecond = (parse(time) % 1e3),
-    microSecond = (parse(time * 1e3) % 1e3),
-    nanoSecond = (parse(time * 1e6) % 1e3);
+    milliSecond = ~~((parse(time) % 1e3)),
+    microSecond = ~~((parse(time * 1e3) % 1e3)),
+    nanoSecond = ~~((parse(time * 1e6) % 1e3));
     
   if (formatted) {
     formatted = formatted.toLowerCase();
@@ -78,3 +74,5 @@ module.exports = function Ms(time, formatted) {
     nanoSecond, abbreviated
   };
 };
+
+module.exports = Ms;

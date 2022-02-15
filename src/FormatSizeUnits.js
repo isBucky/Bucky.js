@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function FormatSizeUnits(bytes) {
+function FormatSizeUnits(bytes) {
   if (bytes >= 1e25) return `${(bytes / 1e25).toFixed(2)} YB`;
   if (bytes >= 1e21) return `${(bytes / 1e21).toFixed(2)} ZB`;
   if (bytes >= 1e18) return `${(bytes / 1e18).toFixed(2)} EB`;
@@ -13,3 +13,5 @@ module.exports = function FormatSizeUnits(bytes) {
   if (bytes == 1) return `${bytes} bytes`;
   return '0 bytes';
 };
+
+module.exports = FormatSizeUnits;

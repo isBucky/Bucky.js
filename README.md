@@ -11,11 +11,11 @@
 </div>
 
 # Installation:
-```sh
+~~~sh
 npm install bucky.js --save
-
+# or
 yarn add bucky.js
-```
+~~~
 
 # Utilities:
 | Functions | Params |
@@ -24,7 +24,9 @@ yarn add bucky.js
 | `daysAgo` | `date`|
 | `formatSizeUnits` | `bytes` |
 | `ms` | `ms or date` `lang` |
+| `pagination` | `array pages` |
 | `removeAcents` | `string` |
+| `removeArrayDuplicates` | `array` |
 | `removeDupleChars` | `string` |
 | `shorten` | `string` `max length` |
 | `similarString` | `string` `array strings` |
@@ -36,7 +38,6 @@ yarn add bucky.js
 # Verifications:
 | Functions | Params |
 | --------- | ------ |
-| `isDate` | `date` |
 | `isEmail` | `string` |
 | `isHex` | `string` |
 | `isURL` | `string` |
@@ -63,15 +64,15 @@ yarn add bucky.js
 # Examples:
 ## Utilities:
 ### CompareStrings:
-```js
+~~~javascript
 const bucky = require('bucky.js');
 
 let result = bucky.compareStrings('bucky', 'buc');
 console.log(result); // Output: 0.6666666666666666
-```
+~~~
 
 ### DaysAgo:
-```js
+~~~javascript
 const bucky = require('bucky.js');
 
 let date = new Date();
@@ -79,10 +80,10 @@ date.setMonth(date.getMonth() - 12);
 
 let daysAgo = bucky.daysAgo(date);
 console.log(daysAgo); // Output: 365
-````
+~~~
 
 ### FormatSizeUnits:
-```js
+~~~javascript
 const bucky = require('bucky.js');
 
 let result = bucky.formatSizeUnits(1000000000);
@@ -90,10 +91,10 @@ console.log(result); // Output: 1.00 GB
 
 let result2 = bucky.formatSizeUnits(10000000000000);
 console.log(result2); // Output: 10.00 TB
-```
+~~~
 
 ### Ms:
-```js
+~~~javascript
 const bucky = require('bucky.js');
 
 let ms = bucky.ms(800000);
@@ -118,40 +119,66 @@ console.log(ms2); // Output: '13 minutos, 20 segundos'
 
 let ms3 = bucky.ms(800000, 'en'); // Languages: pt-BR and EN
 console.log(ms3); // Output: '13 minutes, 20 seconds'
-```
+~~~
+
+### Pagination:
+~~~javascript
+const { Pagination } = require('bucky.js');
+
+let
+  pages = ['bucky', 'npm'],
+  pagination = new Pagination(pages);
+  
+let data1 = pagination.next();
+console.log(data1, pagination.page); // 'npm', 'npm'
+
+let data2 = pagination.back();
+console.log(data2, pagination.page); // 'bucky', 'bucky'
+~~~
 
 ### RemoveAcents:
-```js
+~~~javascript
 const bucky = require('bucky.js');
 
 let
   string = 'ãáäíúò çêéèëô',
   result = bucky.removeAcents(string);
 console.log(result); // aaaiuo ceeeeo
-```
+~~~
+
+### RemoveArrayDuplicates:
+~~~javascript
+const bucky = require('bucky.js');
+
+let
+  array = Array(10).fill('bucky') // ['bucky', 'bucky', 'bucky', ...],
+  data = bucky.removeArrayDuplicates(array);
+  
+console.log(data); // ['bucky'];
+~~~
 
 ### RemoveDupleChars:
-```js
+~~~javascript
 const bucky = require('bucky.js');
 
 let
   string = 'bbbbbbbbbuuuuuuuuccccccckkkkkkyyyyy',
   result = bucky.removeDupleChars(string);
 console.log(result); // Output: bucky
-```
+~~~
 
 ### Shorten:
-```js
+~~~javascript
 const bucky = require('bucky.js');
 
 let
   string = 'install bucky npm, bla bla bla',
   result = bucky.shorten(string, 17);
 console.log(result); // Output: install bucky npm...
-```
+~~~
 
 ### SimilarString:
-```js
+~~~javascript
 const bucky = require('bucky.js');
 
 let
@@ -171,10 +198,10 @@ console.log(result); /**
   *   index: 3
   * }
 */
-```
+~~~
 
 ### TimeFormat:
-```js
+~~~javascript
 const bucky = require('bucky.js');
 
 let
@@ -192,10 +219,10 @@ console.log(result); /*
   *   parseMs: 1635002085785
   * }
 */
-```
+~~~
 
 ### Sleep:
-```js
+~~~javascript
 const bucky = require('bucky.js');
 
 (async() => {
@@ -203,10 +230,10 @@ const bucky = require('bucky.js');
   await bucky.sleep(5000);
   console.log('Final');
 })();
-```
+~~~
 
 ### FindArrayDuplicates:
-```js
+~~~javascript
 const bucky = require('bucky.js');
 
 let array = [
@@ -217,19 +244,19 @@ let array = [
 ];
 
 console.log(bucky.FormatSizeUnits(array)); // Output: ['best']
-```
+~~~
 
 ### CapitalizeFirstLetter:
-```js
+~~~javascript
 const bucky = require('bucky.js');
 
 let string = 'bucky.js best npm!';
 console.log(bucky.capitalizeFirstLetter(string)); // Output: Bucky.js best npm!
-```
+~~~
 
 ## Verifications:
 ### IsDate:
-```js
+~~~javascript
 const bucky = require('bucky.js');
 
 let
@@ -238,10 +265,10 @@ let
   
 console.log(bucky.isDate(date1)); // Output: false
 console.log(bucky.isDate(date2)); // Output: true
-```
+~~~
 
 ### IsEmail:
-```js
+~~~javascript
 const bucky = require('bucky.js');
 
 let
@@ -250,10 +277,10 @@ let
   
 console.log(bucky.isEmail(email1)); // Output: false
 console.log(bucky.isEmail(email2)); // Output: true
-```
+~~~
 
 ### IsHex:
-```js
+~~~javascript
 const bucky = require('bucky.js');
 
 let
@@ -262,10 +289,10 @@ let
   
 console.log(bucky.isHex(hex1)); // Output: false
 console.log(bucky.isHex(hex2)); // Output: true
-```
+~~~
 
 ### IsURL:
-```js
+~~~javascript
 const bucky = require('bucky.js');
 
 let
@@ -274,72 +301,72 @@ let
   
 console.log(bucky.isURL(url1)); // Output: false
 console.log(bucky.isURL(url2)); // Output: true
-```
+~~~
 
 ### IsDirectory:
-```js
+~~~javascript
 const bucky = require('bucky.js');
 
 console.log(bucky.isDirectory('./')); // Output: true
-```
+~~~
 
 ### IsEmptyDirectory:
-```js
+~~~javascript
 const bucky = require('bucky.js');
 
 console.log(bucky.isEmptyDirectory('./')); // Output: false
-```
+~~~
 
 ### IsFile:
-```js
+~~~javascript
 const bucky = require('bucky.js');
 
 console.log(bucky.isFile('./index.js')); // Output: true
-```
+~~~
 
 ### IsEmptyFile:
-```js
+~~~javascript
 const bucky = require('bucky.js');
 
 console.log(bucky.isEmptyFile('./index.js')); // Output: false
-```
+~~~
 
 ## Generators:
 ### GenerateDecimal:
-```js
+~~~javascript
 const bucky = require('bucky.js');
 
 let result = bucky.generateDecimal();
 console.log(result); // Output: 9939304
-```
+~~~
 
 ### GenerateHex:
-```js
+~~~javascript
 const bucky = require('bucky.js');
 
 let result = bucky.generateHex();
 console.log(result); // Output: #97a968
-```
+~~~
 
 ### GeneratePassword:
-```js
+~~~javascript
 const bucky = require('bucky.js');
 
 let result = bucky.generatePassword();
 console.log(result); // Output: h199ix3bjq0djyx238by
-```
+~~~
 
 ### GenerateRGB:
-```js
+~~~javascript
 const bucky = require('bucky.js');
 
 let result = bucky.generateRGB();
 console.log(result); // Output: [ 151, 169, 104 ]
-```
+~~~
 
 ## Encryptions
 ### Encoder:
-```js
+~~~javascript
 const bucky = require('bucky.js');
 
 let
@@ -348,10 +375,10 @@ let
   encrypted = bucky.encoder(message, password);
   
 console.log(encrypted); // Output: 57c685653b22def4c9bb29f521948b787f
-```
+~~~
 
 ### Decoder:
-```js
+~~~javascript
 const bucky = require('bucky.js');
 
 let
@@ -360,10 +387,10 @@ let
   encrypted = bucky.decoder(message, password);
   
 console.log(decrypt); // Output: bucky.js best npm
-```
+~~~
 
 ### Compare:
-```js
+~~~javascript
 const bucky = require('bucky.js');
 
 let
@@ -373,4 +400,4 @@ let
   encrypted = bucky.compare(message1, message2, password);
   
 console.log(decrypt); // Output: true
-```
+~~~

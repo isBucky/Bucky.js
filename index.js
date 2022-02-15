@@ -3,6 +3,7 @@
 exports.version = require('./package.json').version;
 
 exports.capitalizeFirstLetter = require('./src/CapitalizeFirstLetter.js');
+exports.removeArrayDuplicates = require('./src/RemoveArrayDuplicates.js');
 exports.findArrayDuplicates = require('./src/FindArrayDuplicates.js');
 exports.removeDupleChars = require('./src/RemoveDupleChars.js');
 exports.formatSizeUnits = require('./src/FormatSizeUnits.js');
@@ -11,6 +12,7 @@ exports.similarString = require('./src/SimilarString.js');
 exports.formatNumber = require('./src/FormatNumber.js');
 exports.removeAcents = require('./src/RemoveAcents.js');
 exports.timeFormat = require('./src/TimeFormat.js');
+exports.Pagination = require('./src/Pagination.js');
 exports.daysAgo = require('./src/DaysAgo.js');
 exports.shorten = require('./src/Shorten.js');
 exports.sleep = require('./src/Sleep.js');
@@ -26,7 +28,6 @@ exports.isDirectory = require('./src/verifications/IsDirectory.js');
 exports.isEmptyFile = require('./src/verifications/IsEmptyFile.js');
 exports.isEmail = require('./src/verifications/IsEmail.js');
 exports.isFile = require('./src/verifications/IsFile.js');
-exports.isDate = require('./src/verifications/IsDate.js');
 exports.isHex = require('./src/verifications/IsHex.js');
 exports.isURL = require('./src/verifications/IsURL.js');
 
