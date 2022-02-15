@@ -5,7 +5,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/B4CKY0FC/bucky.js.git"
+    "url": "git+https://github.com/isBucky/bucky.js.git"
   },
   "keywords": [
     "bucky", "js", "functions",
@@ -14,9 +14,9 @@
   "author": "@bucky.br",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/B4CKY0FC/bucky.js/issues"
+    "url": "https://github.com/isBucky/bucky.js/issues"
   },
-  "homepage": "https://github.com/B4CKY0FC/bucky.js#readme",
+  "homepage": "https://github.com/isBucky/bucky.js#readme",
   "dependencies": {},
   "engines": {
     "node": ">=16.6.0",
