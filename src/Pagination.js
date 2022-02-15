@@ -2,7 +2,7 @@
 
 class Pagination {
   constructor(array) {
-    if (!Array.isArray(Array)) throw new TypeError('You haven\'t defined a valid array!');
+    if (!Array.isArray(array)) throw new TypeError('You haven\'t defined a valid array!');
     this.numberPage = 0; this.pages = array;
   }
   
