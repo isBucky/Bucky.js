@@ -43,6 +43,7 @@
 
 # Installation
 > Your Node.js must be version 16.6.0 or higher!
+
 ~~~sh
 # Using npm:
 npm install bucky.js --save
@@ -51,3 +52,16 @@ npm install bucky.js --save
 yarn add bucky.js
 ~~~
 
+# Functions
+## Generators
+### GenerateDecimal
+
+
+### GenerateHex
+
+### GeneratePassword
+
+### GenerateRGB
+
+## Verifications
+## Other functions
