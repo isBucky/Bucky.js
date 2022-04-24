@@ -4,12 +4,13 @@ import { generateRGB } from './GenerateRGB';
 
 /**
  * A function that generates random hexadecimal.
+ * @returns {string}
  * 
  * @example
  * ```js
  * import { generateHex } from 'bucky.js';
  * 
- * console.log(generateHex());
+ * console.log(generateHex()); // Will generate a randomized hex.
  * ```
  */
 function generateHex(): string {

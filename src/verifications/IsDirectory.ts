@@ -6,11 +6,16 @@ import { lstatSync } from 'node:fs';
 /**
  * Use to check if a directory exists.
  * 
+ * @param {string} [dir] Directory path to check.
+ * @returns {boolean}
+ * 
  * @example
  * ```js
  * import { isDirectory } from 'bucky.js';
+ * import path from 'node:path';
  * 
- * console.log(isDirectory('/path/to/directory/'));
+ * let directory = isDirectory(path.resolve('path', 'to', 'directory'));
+ * console.log(directory); // Returns a Boolean value.
  * ```
  */
 function isDirectory(dir: string): boolean {

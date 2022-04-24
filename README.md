@@ -10,6 +10,8 @@
   <p><strong>Simple npm that has several functions to use in everyday development.</strong></p>
 </div>
 
+---
+
 # Table of contents
 - [Installation](#installation)
 - [Functions](#functions)
@@ -61,7 +63,7 @@ If you want to inspect the code, [click here](./src/generators/GenerateDecimal.t
 ~~~javascript
 import { generateDecimal } from 'bucky.js';
 
-console.log(generateDecimal());
+console.log(generateDecimal()); // It will generate a randomized decimal.
 ~~~
 
 ### GenerateHex
@@ -71,12 +73,90 @@ If you want to inspect the code, [click here](./src/generators/GenerateHex.ts).
 ~~~javascript
 import { generateHex } from 'bucky.js';
 
-console.log(generateHex());
+console.log(generateHex()); // Will generate a randomized hex.
 ~~~
 
 ### GeneratePassword
+> This function will generate a password with the number of characters you define in the parameters.
+
+If you want to inspect the code, [click here](./src/generators/GenerateHex.ts).
+~~~javascript
+import { generatePassword } from 'bucky.js';
+
+let password = generatePassword(15); // 15 characters
+console.log(password);
+~~~
 
 ### GenerateRGB
+> Use this function to create a random RGB.
+
+If you want to inspect the code, [click here](./src/generators/GenerateRGB.ts).
+~~~javascript
+import { generateRGB } from 'bucky.js';
+
+let [R, G, B] = generateRGB(); // Will generate the random RGB.
+console.log(R, G, B); // It will return an Array with the RGB values.
+~~~
 
 ## Verifications
+### IsDirectory
+> Use to check if a directory exists.
+
+If you want to inspect the code, [click here](./src/verifications/IsDirectory.ts).
+~~~javascript
+import { isDirectory } from 'bucky.js';
+import path from 'node:path';
+
+let directory = isDirectory(path.resolve('path', 'to', 'directory'));
+console.log(directory); // Returns a Boolean value.
+~~~
+
+### IsEmail
+> 
+
+If you want to inspect the code, [click here](./src/verifications/.ts).
+~~~javascript
+import {} from 'bucky.js';
+~~~
+
+### IsEmptyDirectory
+> 
+
+If you want to inspect the code, [click here](./src/verifications/.ts).
+~~~javascript
+import {} from 'bucky.js';
+~~~
+
+### IsEmptyFile
+> 
+
+If you want to inspect the code, [click here](./src/verifications/.ts).
+~~~javascript
+import {} from 'bucky.js';
+~~~
+
+### IsFile
+> 
+
+If you want to inspect the code, [click here](./src/verifications/.ts).
+~~~javascript
+import {} from 'bucky.js';
+~~~
+
+### IsHex
+> 
+
+If you want to inspect the code, [click here](./src/verifications/.ts).
+~~~javascript
+import {} from 'bucky.js';
+~~~
+
+### IsURL
+> 
+
+If you want to inspect the code, [click here](./src/verifications/.ts).
+~~~javascript
+import {} from 'bucky.js';
+~~~
+
 ## Other functions
