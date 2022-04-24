@@ -55,9 +55,24 @@ yarn add bucky.js
 # Functions
 ## Generators
 ### GenerateDecimal
+> A function that will generate random decimals.
 
+If you want to inspect the code, [click here](./src/generators/GenerateDecimal.ts).
+~~~javascript
+import { generateDecimal } from 'bucky.js';
+
+console.log(generateDecimal());
+~~~
 
 ### GenerateHex
+> A function that generates random hexadecimal.
+
+If you want to inspect the code, [click here](./src/generators/GenerateHex.ts).
+~~~javascript
+import { generateHex } from 'bucky.js';
+
+console.log(generateHex());
+~~~
 
 ### GeneratePassword
 
