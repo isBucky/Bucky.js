@@ -54,13 +54,6 @@ yarn add bucky.js
 | `generatePassword` | `amount` |
 | `generateRGB` |
 
-# Encryptions:
-| Functions | Params |
-| --------- | ------ |
-| `encoder` | `message` `password` `callback` |
-| `decoder` | `encrypted message` `password` `callback` |
-| `compare` | `encrypted message` `message` `password` `callback` |
-
 # Examples:
 ## Utilities:
 ### CompareStrings:
@@ -362,42 +355,4 @@ const bucky = require('bucky.js');
 
 let result = bucky.generateRGB();
 console.log(result); // Output: [ 151, 169, 104 ]
-~~~
-
-## Encryptions
-### Encoder:
-~~~javascript
-const bucky = require('bucky.js');
-
-let
-  message = 'bucky.js best npm',
-  password = '12345',
-  encrypted = bucky.encoder(message, password);
-  
-console.log(encrypted); // Output: 57c685653b22def4c9bb29f521948b787f
-~~~
-
-### Decoder:
-~~~javascript
-const bucky = require('bucky.js');
-
-let
-  message = '57c685653b22def4c9bb29f521948b787f',
-  password = '12345',
-  encrypted = bucky.decoder(message, password);
-  
-console.log(decrypt); // Output: bucky.js best npm
-~~~
-
-### Compare:
-~~~javascript
-const bucky = require('bucky.js');
-
-let
-  message1 = '57c685653b22def4c9bb29f521948b787f',
-  message2 = 'bucky.js best npm',
-  password = '12345',
-  encrypted = bucky.compare(message1, message2, password);
-  
-console.log(decrypt); // Output: true
 ~~~

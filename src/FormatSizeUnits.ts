@@ -1,6 +1,18 @@
 'use strict';
 
-function FormatSizeUnits(bytes) {
+/**
+ * Use this function to format the byte size.
+ * 
+ * @exmaple
+ * ```js
+ * import { formatSizeUnits } from 'bucky.js';
+ * 
+ * console.log(formatSizeUnits(15393763));
+ * ```
+ */
+function formatSizeUnits(bytes: number): string {
+  if (isNaN(bytes)) throw new TypeError(`You have not defined a value in bytes of type String, received: ${typeof bytes}`);
+  
   if (bytes >= 1e25) return `${(bytes / 1e25).toFixed(2)} YB`;
   if (bytes >= 1e21) return `${(bytes / 1e21).toFixed(2)} ZB`;
   if (bytes >= 1e18) return `${(bytes / 1e18).toFixed(2)} EB`;
@@ -12,6 +24,6 @@ function FormatSizeUnits(bytes) {
   if (bytes > 1) return `${bytes} bytes`;
   if (bytes == 1) return `${bytes} bytes`;
   return '0 bytes';
-};
+}
 
-module.exports = FormatSizeUnits;
+export { formatSizeUnits };

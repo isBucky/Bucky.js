@@ -1,12 +1,26 @@
 'use strict';
 
-const { isDate } = require('node:util');
+import { isDate } from 'node:util';
 
-function Ms(time, formatted) {
-  if (isDate(time)) time = time.getTime();
+/**
+ * Use this function to format milliseconds.
+ * 
+ * @example
+ * ```js
+ * import { ms } from 'bucky.js';
+ * 
+ * // Unformatted:
+ * console.log(ms(153635));
+ * 
+ * // Formatted:
+ * console.log(ms(153635, 'en-us'));
+ * ```
+ */
+function ms(time: number | Date, formatted?: string): object | string {
+  if (isDate(time)) time = time?.getTime();
   
-  if (!time) throw new TypeError('You have not set a valid time!');
-  if (isNaN(time)) throw new TypeError('Time in ms can only be in numbers!');
+  if (!time) throw new TypeError(`You have not set a valid time in milliseconds, received: ${typeof time}`);
+  if (isNaN(time)) throw new TypeError(`Time must be of type String, received: ${typeof time}`);
   
   let
     parse = time > 0 ? Math.floor : Math.ceil,
@@ -28,8 +42,7 @@ function Ms(time, formatted) {
     if (!formatted) formatted = 'en-us';
     if (!['pt-br', 'en-us'].includes(formatted)) throw new TypeError('Choose a valid language: pt-br or en-us!');
     
-    let
-      langs = {
+    let langs: any = {
         'pt-br': [
           [' anos', ' ano'],
           [' meses', ' mês'],
@@ -73,6 +86,6 @@ function Ms(time, formatted) {
     milliSecond, microSecond,
     nanoSecond, abbreviated
   };
-};
+}
 
-module.exports = Ms;
+export { ms };
