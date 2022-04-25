@@ -3,11 +3,15 @@
 /**
  * Use this function to verify valid emails.
  * 
+ * @param {string} [email] Email to be verified.
+ * @returns {boolean}
+ * 
  * @example
  * ```js
  * import { isEmail } from 'bucky.js';
  * 
- * console.log(isEmail('youremail@gmail.com'));
+ * let myEmail = 'your.email@yourdomain.com';
+ * console.log(isEmail(myEmail)); // Returns a Boolean value.
  * ```
  */
 function isEmail(email: string): boolean {

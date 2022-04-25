@@ -6,11 +6,16 @@ import { readdirSync } from 'node:fs';
 /**
  * Use this function to check if a directory is empty.
  * 
+ * @param {string} [dir] Directory path to check.
+ * @returns {boolean}
+ * 
  * @example
  * ```js
  * import { isEmptyDirectory } from 'bucky.js';
+ * import path from 'node:path';
  * 
- * console.log(isEmptyDirectory('/path/to/directory/'));
+ * let directory = path.resolve('path', 'to', 'directory');
+ * console.log(isEmptyDirectory(directory)); // Returns a Boolean value.
  * ```
  */
 function isEmptyDirectory(dir: string): boolean {

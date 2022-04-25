@@ -94,8 +94,8 @@ If you want to inspect the code, [click here](./src/generators/GenerateRGB.ts).
 ~~~javascript
 import { generateRGB } from 'bucky.js';
 
-let [R, G, B] = generateRGB(); // Will generate the random RGB.
-console.log(R, G, B); // It will return an Array with the RGB values.
+let myRGB = generateRGB(); // Will generate the random RGB.
+console.log(myRGB); // It will return an Array with the RGB values.
 ~~~
 
 ## Verifications
@@ -107,56 +107,76 @@ If you want to inspect the code, [click here](./src/verifications/IsDirectory.ts
 import { isDirectory } from 'bucky.js';
 import path from 'node:path';
 
-let directory = isDirectory(path.resolve('path', 'to', 'directory'));
-console.log(directory); // Returns a Boolean value.
+let directory = path.resolve('path', 'to', 'directory');
+console.log(isDirectory(directory)); // Returns a Boolean value.
 ~~~
 
 ### IsEmail
-> 
+> Use this function to verify valid emails.
 
-If you want to inspect the code, [click here](./src/verifications/.ts).
+If you want to inspect the code, [click here](./src/verifications/IsEmail.ts).
 ~~~javascript
-import {} from 'bucky.js';
+import { isEmail } from 'bucky.js';
+
+let myEmail = 'your.email@yourdomain.com';
+console.log(isEmail(myEmail)); // Returns a Boolean value.
 ~~~
 
 ### IsEmptyDirectory
-> 
+> Use this function to check if a directory is empty.
 
-If you want to inspect the code, [click here](./src/verifications/.ts).
+If you want to inspect the code, [click here](./src/verifications/IsEmptyDirectory.ts).
 ~~~javascript
-import {} from 'bucky.js';
+import { isEmptyDirectory } from 'bucky.js';
+import path from 'node:path';
+
+let directory = path.resolve('path', 'to', 'directory');
+console.log(isEmptyDirectory(directory)); // Returns a Boolean value.
 ~~~
 
 ### IsEmptyFile
-> 
+> Use this function to check if a file is empty.
 
-If you want to inspect the code, [click here](./src/verifications/.ts).
+If you want to inspect the code, [click here](./src/verifications/IsEmptyFile.ts).
 ~~~javascript
-import {} from 'bucky.js';
+import { isEmptyFile } from 'bucky.js';
+import path from 'node:path';
+
+let file = path.resolve('path', 'to', 'file');
+console.log(isEmptyFile(file)); // Returns a Boolean value.
 ~~~
 
 ### IsFile
-> 
+> Use this function to check whether it is a file or not.
 
-If you want to inspect the code, [click here](./src/verifications/.ts).
+If you want to inspect the code, [click here](./src/verifications/IsFile.ts).
 ~~~javascript
-import {} from 'bucky.js';
+import { isFile } from 'bucky.js';
+import path from 'node:path';
+
+let file = path.resolve('path', 'to', 'file');
+console.log(isEmptyFile(file)); // Returns a Boolean value.
 ~~~
 
 ### IsHex
-> 
+> Use this function to check whether a hex or not.
 
-If you want to inspect the code, [click here](./src/verifications/.ts).
+If you want to inspect the code, [click here](./src/verifications/IsHex.ts).
 ~~~javascript
-import {} from 'bucky.js';
+import { isHex } from 'bucky.js';
+
+console.log(isHex('#FFA500')); // Returns a Boolean value.
 ~~~
 
 ### IsURL
-> 
+> Use this function to check if it's a URL.
 
-If you want to inspect the code, [click here](./src/verifications/.ts).
+If you want to inspect the code, [click here](./src/verifications/IsURL.ts).
 ~~~javascript
-import {} from 'bucky.js';
+import { isURL } from 'bucky.js';
+
+let url = 'https://www.npmjs.com/package/bucky.js';
+console.log(isURL(url));  // Returns a Boolean value.
 ~~~
 
 ## Other functions
