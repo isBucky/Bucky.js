@@ -5,6 +5,10 @@ import { isDate } from 'node:util';
 /**
  * Use this function to format milliseconds.
  * 
+ * @param {number | Date} [time] Time you want to transform.
+ * @param {string?} [formatted] Use to format milliseconds in full.
+ * @returns {object}
+ * 
  * @example
  * ```js
  * import { ms } from 'bucky.js';

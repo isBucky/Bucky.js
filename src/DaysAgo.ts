@@ -5,6 +5,9 @@ import { isDate } from 'node:util';
 /**
  * Use this function to check when days ago has a date.
  * 
+ * @param {Date} [time] Date of the last event.
+ * @returns {number}
+ * 
  * @example
  * ```js
  * import { daysAgo } from 'bucky.js';

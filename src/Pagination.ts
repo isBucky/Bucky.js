@@ -19,6 +19,9 @@ class Pagination {
   public numberPage: number;
   public readonly pages: any[];
   
+  /**
+   * @param {any[]} [array] An Array containing any information.
+   */
   constructor(array: any[]) {
     if (!Array.isArray(array)) throw new TypeError(`You have not defined a valid Array, received: ${typeof array}`);
     
@@ -28,6 +31,9 @@ class Pagination {
   
   /**
    * Use this function to jump to the next page.
+   * 
+   * @param {number?} [position] Position of the page you want to jump to.
+   * @returns {any}
    * 
    * @example
    * ```js
@@ -53,6 +59,9 @@ class Pagination {
   
   /**
    * Use this function to go back one page.
+   * 
+   * @param {number?} [position] Position of the page you want to go back to.
+   * @returns {any}
    * 
    * @example
    * ```js
@@ -96,6 +105,9 @@ class Pagination {
   /**
    * Use this function to remove a specific value from the Array.
    * 
+   * @param {number | string} [position] Position of the page you want to remove.
+   * @returns {any}
+   * 
    * @example
    * ```js
    * // Removing a value at position 2:
@@ -113,6 +125,8 @@ class Pagination {
   /**
    * Use está função para limpar todos os valores da Array.
    * 
+   * @returns {any[]}
+   * 
    * @example
    * ```js
    * Pagination.clear();
@@ -124,6 +138,8 @@ class Pagination {
   
   /**
    * This getter will show the current Array page.
+   * 
+   * @returns {any}
    * 
    * @example
    * ```js

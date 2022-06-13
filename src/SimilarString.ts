@@ -5,6 +5,10 @@ import { compareStrings } from './CompareStrings';
 /**
  * Use this function to find a string similar to another.
  * 
+ * @param {string} [target] Keyword.
+ * @param {string[]} [stringsArray] Word array for similar.
+ * @returns {Result}
+ * 
  * @example
  * ```js
  * import { similarString } from 'bucky.js';
