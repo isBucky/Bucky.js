@@ -109,3 +109,5 @@ typings/
 genCrypt.mjs`,
   '.npmignore': `docs/
 *.md
+
+dist/
