@@ -1,5 +1,3 @@
-'use strict';
-
 import { compareStrings } from './CompareStrings';
 
 /**
@@ -20,7 +18,7 @@ import { compareStrings } from './CompareStrings';
  * console.log(search);
  * ```
  */
-function similarString(target: string, stringsArray: string[]): Result {
+export function similarString(target: string, stringsArray: string[]): ResultSimilarString {
   if (typeof target !== 'string' || !target.length) throw new TypeError(`The first parameter has to be of type string, received: ${typeof target}`);
   if (!Array.isArray(stringsArray)) throw new TypeError(`The second parameter has to be an Array of strings, received: ${typeof stringsArray}`);
   
@@ -41,7 +39,7 @@ function similarString(target: string, stringsArray: string[]): Result {
     : { ratings, result: ratings[bestRatingIndex] };
 }
 
-export interface Result {
+export interface ResultSimilarString {
   ratings: object[];
   result: {
     target: string;
@@ -49,5 +47,3 @@ export interface Result {
     index: number;
   } | null
 }
-
-export { similarString };

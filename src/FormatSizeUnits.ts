@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * Use this function to format the byte size.
  * 
@@ -13,7 +11,7 @@
  * console.log(formatSizeUnits(15393763));
  * ```
  */
-function formatSizeUnits(bytes: number): string {
+export function formatSizeUnits(bytes: number): string {
   if (isNaN(bytes)) throw new TypeError(`You have not defined a value in bytes of type String, received: ${typeof bytes}`);
   
   if (bytes >= 1e25) return `${(bytes / 1e25).toFixed(2)} YB`;
@@ -28,5 +26,3 @@ function formatSizeUnits(bytes: number): string {
   if (bytes == 1) return `${bytes} bytes`;
   return '0 bytes';
 }
-
-export { formatSizeUnits };

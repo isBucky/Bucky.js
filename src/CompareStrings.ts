@@ -1,5 +1,3 @@
-'use strict';
-
 import { removeArrayDuplicates } from './RemoveArrayDuplicates';
 
 /**
@@ -16,7 +14,7 @@ import { removeArrayDuplicates } from './RemoveArrayDuplicates';
  * console.log(compareStrings('foo', 'bar'));
  * ```
  */
-function compareStrings(key: string, target: string): number {
+export function compareStrings(key: string, target: string): number {
   key = key.replace(/\s+/g, '').toLowerCase();
   target = target.replace(/\s+/g, '').toLowerCase();
   
@@ -37,5 +35,3 @@ function compareStrings(key: string, target: string): number {
   for (let index in resolvedStringKey) size += resolvedStringKey[index] * resolvedStringTarget[index];
   return (1.0 * size) / (Math.sqrt(keySize) * Math.sqrt(targetSize));
 }
-
-export { compareStrings };

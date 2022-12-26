@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * Used to navigate between values in an Array more easily.
  * 
@@ -15,7 +13,7 @@
  * console.log(pagination);
  * ```
  */
-class Pagination {
+export class Pagination {
   public numberPage: number;
   public readonly pages: any[];
   
@@ -150,5 +148,3 @@ class Pagination {
     return this.pages[this.numberPage];
   }
 }
-
-export { Pagination };

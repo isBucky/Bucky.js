@@ -13,15 +13,24 @@ import { isDate } from 'node:util';
  * ```js
  * import { ms } from 'bucky.js';
  * 
- * // Unformatted:
- * console.log(ms(153635));
- * 
- * // Formatted:
- * console.log(ms(153635, 'en-us'));
+ * console.log(15e3);
+ * // output:
+ * //{
+ * //   year: 0,
+ * //   month: 0,
+ * //   day: 0,
+ * //   hour: 0,
+ * //   minute: 0,
+ * //   second: 15,
+ * //   millisecond: 0,
+ * //   microsecond: 0,
+ * //   nanosecond: 0,
+ * //   abbreviated: '15s'
+ * // }
  * ```
  */
-function ms(time: number | Date, formatted?: string): object | string {
-  if (isDate(time)) time = time?.getTime();
+export function ms(time: number | Date): ResultMs {
+  if (time instanceof Date) time = time?.getTime();
   
   if (!time) throw new TypeError(`You have not set a valid time in milliseconds, received: ${typeof time}`);
   if (isNaN(time)) throw new TypeError(`Time must be of type String, received: ${typeof time}`);
@@ -37,45 +46,10 @@ function ms(time: number | Date, formatted?: string): object | string {
     minute = ~~((parse(time / 6e4) % 60)),
     second = ~~((parse(time / 1e3) % 60)),
     
-    milliSecond = ~~((parse(time) % 1e3)),
-    microSecond = ~~((parse(time * 1e3) % 1e3)),
-    nanoSecond = ~~((parse(time * 1e6) % 1e3));
+    millisecond = ~~((parse(time) % 1e3)),
+    microsecond = ~~((parse(time * 1e3) % 1e3)),
+    nanosecond = ~~((parse(time * 1e6) % 1e3));
     
-  if (formatted) {
-    formatted = formatted.toLowerCase();
-    if (!formatted) formatted = 'en-us';
-    if (!['pt-br', 'en-us'].includes(formatted)) throw new TypeError('Choose a valid language: pt-br or en-us!');
-    
-    let langs: any = {
-        'pt-br': [
-          [' anos', ' ano'],
-          [' meses', ' mês'],
-          [' dias', ' dia'],
-          [' horas', ' hora'],
-          [' minutos', ' minuto'],
-          [' segundos', ' segundo']
-        ],
-        'en-us': [
-          [' years', ' year'],
-          [' months', ' month'],
-          [' days', ' day'],
-          [' hours', ' hour'],
-          [' minutes', ' minute'],
-          [' seconds', ' second']
-        ]
-      },
-      
-      result = [
-        (year ? year + (year > 1 ? langs[formatted][0][0] : langs[formatted][0][1]) : null),
-        (month ? month + (month > 1 ? langs[formatted][1][0] : langs[formatted][1][1]) : null),
-        (day ? day + (day > 1 ? langs[formatted][2][0] : langs[formatted][2][1]) : null),
-        (hour ? hour + (hour > 1 ? langs[formatted][3][0] : langs[formatted][3][1]) : null),
-        (minute ? minute + (minute > 1 ? langs[formatted][4][0] : langs[formatted][4][1]) : null),
-        (second ? second + (second > 1 ? langs[formatted][5][0] : langs[formatted][5][1]) : null)
-      ].filter(Boolean).join(', ');
-      
-    return result.length > 0 ? result : '0' + langs[formatted][5][1];
-  }
   
   let abbreviated = [
     (year ? `${year}y` : null), (month ? `${month}ms` : null),
@@ -87,9 +61,20 @@ function ms(time: number | Date, formatted?: string): object | string {
   return {
     year, month, day,
     hour, minute, second,
-    milliSecond, microSecond,
-    nanoSecond, abbreviated
+    millisecond, microsecond,
+    nanosecond, abbreviated
   };
 }
 
-export { ms };
+export interface ResultMs {
+  year: number,
+  month: number,
+  day: number,
+  hour: number,
+  minute: number,
+  second: number,
+  millisecond: number,
+  microsecond: number,
+  nanosecond: number,
+  abbreviated: string;
+}
